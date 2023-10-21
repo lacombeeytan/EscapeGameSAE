@@ -26,8 +26,7 @@ html {
     /* polices */
     --policePeur :
     'The Girl Next Door';
-    --policeSimple :
-    'Telex';
+    --policeSimple : 'Telex';
 
     /* Espaces */
     --largeurmax: 900px;
@@ -104,6 +103,7 @@ h4.policeSimple {
 p {
     color: white; 
     font-size: var(--paragraphes);
+    font-family: var(--policeSimple);
 }
 
 p.droite {
@@ -115,7 +115,7 @@ p.gauche {
 }
 
 p.justify {
-    text-align: justify;
+    text-align: center;
 }
 
 button {
@@ -151,14 +151,22 @@ header {
 
 #Boitier-nav {
     position: fixed;
+    top: 1px;
     width: 600px;
     height: 40px;
     margin-top: 16px;
-    padding: 0 0 0 40px;
     background: white;
     border-radius: var(--borderadius);
     border: 1px black solid;
     animation: 1s 0.3 ease;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    align-items: baseline;
+}
+
+#Boitier-nav nav {
+    text-align: center;
 }
 
 nav ul li {
@@ -175,6 +183,7 @@ nav ul li a {
     font-size: var(--grandTexte);
     font-family: var(--policeSimple);
     color: var(--noir);
+    /* text-align: center; */
 }
 
 /* Styles pour la video */
@@ -182,8 +191,8 @@ nav ul li a {
 #video-container {
     border-radius: 30px;
     max-width: 800px;
-    min-width: 400px;
-    height: auto;
+    min-width: 419px;
+    height: 390px;
     overflow: hidden;
     margin: 100px auto 0;
     box-shadow: 0px 10px 40px 1px rgba(255,255,255,0.10);
@@ -198,14 +207,13 @@ nav ul li a {
 figure.chaineA {
     position: relative;
     width: 100%;
-    bottom: 490px;
     transition: opacity 2s;
+    bottom: 430px;
 }
 
 figure.chaineA img{
-    width: 100%; 
-    position: absolute; 
-    left: 0px; z-index: 1; 
+    width: 102%;
+    position: absolute;
     pointer-events: none;
 }
 
@@ -213,7 +221,7 @@ figure.chaineA img:nth-child(2) {
     transform: scaleX(-1);
 }
 
-figure.cadenaAtras {
+figure.chaineD {
     position: relative;
     z-index: -1;
     bottom: 300px;
@@ -221,6 +229,7 @@ figure.cadenaAtras {
     justify-content: space-between;
     width: 100%;
     overflow: hidden;
+    background: url(https://i.imgur.com/dyfGoKI.png);
 }
 
 
@@ -228,7 +237,7 @@ figure.cadenaAtras {
 
 #BoiteSimple {
     display: flex; 
-    flex-direction: row-reverse; 
+    flex-direction: row-reverse;
     width: var(--largeurmax);
     margin: 0 auto;
     justify-content: space-between;
@@ -297,12 +306,12 @@ div.container-com figure{
     margin: 0 auto;
     background-color: var(--bleu);
     border-radius: 50px;
-    padding: 20px;
+    padding: 10px 40px 60px 40px;
 }
 
 div#info-container {
     display: flex;
-    gap: 30px;
+    gap: 60px;
 }
 
 div#info-container div.info {
@@ -417,6 +426,9 @@ figure.img-regles img {
     color: red;
 }
 
+#lesalles > p {
+    text-align: center;
+}
 
 #lesalles div#derroulant {
     width: 100%;
@@ -433,7 +445,7 @@ div#derroulant div.salles{
 div#derroulant div.salles p {
     display: none;
     position: relative;
-    bottom: 180px;
+    bottom: 250px;
     font-size: var(--paragraphes);
     font-family: var(--policePeur);
     padding: 10px;
@@ -492,7 +504,6 @@ footer a {
 #Boitier-nav:hover {
     height: auto; /*Il fait grandir le nav*/
     border-radius: 25px;
-    z-index: 3;
 }
 
 #Boitier-nav:hover nav ul li:nth-child(2),
@@ -506,8 +517,15 @@ nav ul li a:hover {
     font-weight: bold;
 }
 
-#video-container:focus-within + figure.chaineA {
-    opacity: .0;
+video:focus-within + figure.chaineA {
+    opacity: 0.0;
+}
+
+#videoA {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    z-index: 3;
 }
 
 div#derroulant div.salles:hover{
@@ -515,7 +533,7 @@ div#derroulant div.salles:hover{
 }
 
 div#derroulant div.salles:active {
-    width: 300px;
+    width: 450px;
 }
 
 div#derroulant div.salles:active p{
